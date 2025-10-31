@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CountrySearch } from "../../components/country-search/country-search";
 import { CountryList } from "../../components/country-list/country-list";
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-by-capital-page',
@@ -9,5 +10,12 @@ import { CountryList } from "../../components/country-list/country-list";
   styles: ``,
 })
 export class ByCapitalPage {
-  buscarPor = signal<string>("hh")
+  countryServices =inject(CountryService)
+  handleSearch(query: string){
+    this.countryServices.getByCapital(query).subscribe( {
+      next: (data) => {
+        console.log(data);
+      }
+    })
+  }
 }

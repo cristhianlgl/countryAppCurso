@@ -9,5 +9,4 @@ import { CountryList } from "../../components/country-list/country-list";
   styles: ``,
 })
 export class ByCountryPage {
-
 }
