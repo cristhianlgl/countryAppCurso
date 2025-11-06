@@ -6,7 +6,7 @@ export class CountryMapper {
     return {
       codigo: country.cca2,
       name: country.name.common,
-      capital: country.capital[0] ?? 'No capital',
+      capital: country.capital.join(', '),
       region: country.region,
       population: country.population,
       flag: country.flag,
@@ -15,7 +15,7 @@ export class CountryMapper {
     };
   }
 
-  static toCountries(countries: any[]): Country[] {
+  static toCountries(countries: RestCountry[]): Country[] {
     return countries.map(CountryMapper.toCountry);
   }
 }

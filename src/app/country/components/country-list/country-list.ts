@@ -8,5 +8,5 @@ import { Country } from '../../interfaces/country.interface';
   styles: ``,
 })
 export class CountryList {
-  countries = input<Country[]>([])
+  countries = input.required<Country[]>()
 }
