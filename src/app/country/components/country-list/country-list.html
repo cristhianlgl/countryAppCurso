@@ -12,7 +12,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr></tr>
+      @for(country of countries(); track country.codigo; let i = $index) {
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ country.flag }}</td>
+          <td><img [src]="country.flagSvg" [alt]="country.name" width="32" height="32"></td>
+          <td>{{ country.name }}</td>
+          <td>{{ country.capital }}</td>
+          <td>{{ country.population }}</td>
+          <td><a class="link-primary link-hover cursor-pointer">Mas Informacion</a></td>
+        </tr>
+      }
     </tbody>
   </table>
 </section>

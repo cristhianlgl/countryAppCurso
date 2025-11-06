@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { CountryMapper } from '../mappers/country.mapper';
+import { RestCountry } from '../interfaces/rest-countries.interface';
+import { map } from 'rxjs';
 
 const URL_API = 'https://restcountries.com/v3.1'
 
@@ -11,6 +14,9 @@ export class CountryService {
 
   getByCapital(query: string){
     const queryLowerCase = query.toLocaleLowerCase();
-    return this.http.get(`${URL_API}/capital/${query}`)
+    return this.http.get<RestCountry[]>(`${URL_API}/capital/${queryLowerCase}`)
+    .pipe(
+      map((response) => CountryMapper.toCountries(response)),
+    )
   }
 }
