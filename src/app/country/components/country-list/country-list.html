@@ -19,7 +19,11 @@
           <td><img [src]="country.flagSvg" [alt]="country.name" width="32" height="32"></td>
           <td>{{ country.name }}</td>
           <td>{{ country.capital }}</td>
-          <td>{{ country.population }}</td>
+          <td>
+              <span class="badge badge-neutral">
+                {{ country.population | number }}
+              </span>
+          </td>
           <td><a class="link-primary link-hover cursor-pointer">Mas Informacion</a></td>
         </tr>
       }

@@ -5,7 +5,7 @@ export class CountryMapper {
   static toCountry(country: RestCountry): Country {
     return {
       codigo: country.cca2,
-      name: country.name.common,
+      name: country.translations.spa.common ?? country.name.common,
       capital: country.capital.join(', '),
       region: country.region,
       population: country.population,
