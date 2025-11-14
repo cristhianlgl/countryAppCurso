@@ -6,7 +6,7 @@ export class CountryMapper {
     return {
       codigo: country.cca2,
       name: country.translations.spa.common ?? country.name.common,
-      capital: country.capital.join(', '),
+      capital: country.capital?.length ? country.capital.join(', ') : 'N/A',
       region: country.region,
       population: country.population,
       flag: country.flag,

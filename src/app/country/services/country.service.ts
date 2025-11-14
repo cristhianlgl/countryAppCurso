@@ -25,12 +25,14 @@ export class CountryService {
 
   getByContry(query: string){
     const queryLowerCase = query.toLocaleLowerCase();
+    console.log(`${URL_API}/name/${queryLowerCase}`)
     return this.http.get<RestCountry[]>(`${URL_API}/name/${queryLowerCase}`)
     .pipe(
       map((response) => CountryMapper.toCountries(response)),
-      catchError(() =>
-        throwError(() => new Error(`No se puedo obtener paises con el nombre ${query}`))
-       )
+      catchError(error => {
+        console.log(error)
+        return throwError(() => new Error(`No se puedo obtener paises con el nombre ${query}`))
+      })
     )
   }
 }
