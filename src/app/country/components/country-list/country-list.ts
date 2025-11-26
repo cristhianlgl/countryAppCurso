@@ -9,5 +9,9 @@ import { DecimalPipe } from '@angular/common';
   styles: ``,
 })
 export class CountryList {
-  countries = input.required<Country[]>()
+  countries = input.required<Country[]>();
+
+  errorMessages = input<string | unknown | null>();
+  isLoading = input<boolean>(false);
+  isEmpty = input<boolean>(false);
 }

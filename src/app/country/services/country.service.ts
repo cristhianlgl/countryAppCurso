@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { CountryMapper } from '../mappers/country.mapper';
 import { RestCountry } from '../interfaces/rest-countries.interface';
-import { map, catchError, throwError } from 'rxjs';
+import { map, catchError, throwError, delay } from 'rxjs';
 
 const URL_API = 'https://restcountries.com/v3.1'
 
@@ -29,10 +29,13 @@ export class CountryService {
     return this.http.get<RestCountry[]>(`${URL_API}/name/${queryLowerCase}`)
     .pipe(
       map((response) => CountryMapper.toCountries(response)),
-      catchError(error => {
-        console.log(error)
-        return throwError(() => new Error(`No se puedo obtener paises con el nombre ${query}`))
-      })
+      catchError((error) => {
+        console.log("Este es un mensajee de error: ",error)
+        return throwError(
+          () => new Error(`No se puedo obtener paises con el nombre ${query}`)
+        )
+      }
+      )
     )
   }
 }
