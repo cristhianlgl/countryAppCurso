@@ -30,11 +30,25 @@ export class CountryService {
     .pipe(
       map((response) => CountryMapper.toCountries(response)),
       catchError((error) => {
-        console.log("Este es un mensajee de error: ",error)
         return throwError(
           () => new Error(`No se puedo obtener paises con el nombre ${query}`)
         )
       }
+      )
+    )
+  }
+
+  getByAlphaCode(code: string){
+    const codeLowerCase = code.toLocaleLowerCase();
+    console.log(`${URL_API}/name/${codeLowerCase}`)
+    return this.http.get<RestCountry[]>(`${URL_API}/alpha/${codeLowerCase}`)
+    .pipe(
+      map((response) => CountryMapper.toCountries(response)),
+      map((countries) => countries.at(0)), // Retorna el primer pais de la respuesta
+      catchError(() =>
+        throwError(
+          () => new Error(`No se puedo obtener paises con ese codigo ${code}`)
+        )
       )
     )
   }

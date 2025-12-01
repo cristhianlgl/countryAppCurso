@@ -1,12 +1,6 @@
 <country-search (searchValue)="query.set($event)" textPlaceholder="Buscar por Pais" />
 
-@if(countryResource.error()){
-<div role="alert" class="alert mt-4">
-  <span>{{ countryResource.error() }}</span>
-</div>
-}
-
 <country-list
   [errorMessages]="countryResource.error()"
-  [countries]="countryResource.value() ?? []"
+  [countries]="countryResource.hasValue() ? countryResource.value() : []"
 />
