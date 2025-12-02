@@ -3,7 +3,10 @@ export interface Country {
   name: string;
   capital: string;
   population: number;
-  region: string;
   flag: string;
   flagSvg: string;
+  region: string;
+  subRegion: string;
+  language: string;
+
 }

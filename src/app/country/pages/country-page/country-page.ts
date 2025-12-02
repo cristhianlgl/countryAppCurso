@@ -3,10 +3,12 @@ import { CountryService } from '../../services/country.service';
 import { ActivatedRoute } from '@angular/router';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { of } from 'rxjs';
+import { NotFoundComponent } from '../../components/not-found/not-found';
+import { CountryDetailsComponent } from './country-details/country-details';
 
 @Component({
   selector: 'app-country-page',
-  imports: [],
+  imports: [NotFoundComponent, CountryDetailsComponent],
   templateUrl: './country-page.html',
   styles: ``,
 })

@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
   templateUrl: './not-found.html',
   styles: ``,
 })
-export class NotFound {
+export class NotFoundComponent {
   error = input<string>('No se pudo encontrar el pais');
   location = inject(Location);
 

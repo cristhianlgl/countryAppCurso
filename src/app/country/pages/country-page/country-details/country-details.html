@@ -1,0 +1,39 @@
+<section class="flex flex-row items-center justify-start gap-7 mx-6">
+  <span class="size-20">
+    <img [src]="country().flagSvg" alt="" />
+  </span>
+  <h1 class="text-4xl font-bold text-primary">{{ country().name }}</h1>
+</section>
+<div class="divider"></div>
+<section>
+  <div class="stats shadow">
+    <div class="stat">
+      <div class="stat-title">population</div>
+      <div class="stat-value text-secondary">{{ country().population | number }}</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-title">Capital</div>
+      <div class="stat-value text-secondary">{{ country().capital }}</div>
+      <div class="stat-desc">{{ country().language }}</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-title">Region</div>
+      <div class="stat-value text-secondary">{{ country().region }}</div>
+      <div class="stat-desc">{{ country().subRegion }}</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<section>
+  <figure class="diff aspect-video" tabindex="0">
+    <div class="diff-item-1" role="img" tabindex="0">
+      <img class="blur-md brightness-75" alt="daisy" [src]="country().flagSvg" />
+    </div>
+    <div class="diff-item-2" role="img">
+      <img alt="daisy" [src]="country().flagSvg" />
+    </div>
+    <div class="diff-resizer"></div>
+  </figure>
+</section>

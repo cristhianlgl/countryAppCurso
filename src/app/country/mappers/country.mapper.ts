@@ -7,11 +7,12 @@ export class CountryMapper {
       codigo: country.cca2,
       name: country.translations.spa.common ?? country.name.common,
       capital: country.capital?.length ? country.capital.join(', ') : 'N/A',
-      region: country.region,
       population: country.population,
       flag: country.flag,
       flagSvg: country.flags.svg,
-
+      region: country.region,
+      subRegion: country.subregion,
+      language: Object.values(country.languages).join(', ')
     };
   }
 
