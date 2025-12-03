@@ -12,7 +12,7 @@ export class CountryMapper {
       flagSvg: country.flags.svg,
       region: country.region,
       subRegion: country.subregion,
-      language: Object.values(country.languages).join(', ')
+      language: Object.values(country?.languages ?? {}).join(', ')
     };
   }
 

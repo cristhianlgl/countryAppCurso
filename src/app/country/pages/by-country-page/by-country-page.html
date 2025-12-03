@@ -3,4 +3,6 @@
 <country-list
   [errorMessages]="countryResource.error()"
   [countries]="countryResource.hasValue() ? countryResource.value() : []"
+  [isEmpty]="countryResource.value()?.length === 0"
+  [isLoading]="countryResource.isLoading()"
 />
