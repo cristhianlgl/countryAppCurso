@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { CountryMapper } from '../mappers/country.mapper';
 import { RestCountry } from '../interfaces/rest-countries.interface';
-import { map, catchError, throwError, delay } from 'rxjs';
+import { map, catchError, throwError, delay, of } from 'rxjs';
 
 const URL_API = 'https://restcountries.com/v3.1'
 
